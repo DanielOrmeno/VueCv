@@ -1,132 +1,47 @@
 <script lang="ts">
-export default {
-    name: 'tech',
-    data: () => ({
-        items: [
-            {
-                avatar: 'https://vuejs.org/images/logo.png',
-                title: 'VueJs',
-                skill: 85,
-            },
-            {
-                avatar: 'https://angular.io/assets/images/logos/angular/angular.svg',
-                title: 'Angular',
-                skill: 75,
-            },
-            {
-                avatar: 'https://docs.microsoft.com/en-us/dotnet/images/hub/net.svg',
-                title: '.NET Framework',
-                skill: 70,
-            },
-            {
-                avatar: 'https://docs.microsoft.com/en-us/dotnet/images/hub/netcore.svg',
-                title: '.NET Core',
-                skill: 60,
-            },
-        ],
+import Vue from 'vue';
+import { Component } from 'vue-property-decorator';
+import { stack } from '../assets/stack';
 
-        languages: [
-            {
-                avatar: 'https://cdn-images-1.medium.com/max/1052/1*DN7ToydkJZEdVaJVK_Nhvw.png',
-                title: 'Javascript',
-                skill: 70,
-            },
-            {
-                avatar: 'https://docs.microsoft.com/en-us/dotnet/images/hub/csharp.svg',
-                title: 'C#',
-                skill: 75,
-            },
-            {
-                avatar: 'https://cdn-images-1.medium.com/max/1187/1*JsyV8lXMuTbRVLQ2FPYWAg.png',
-                title: 'Typescript',
-                skill: 65,
-            },
-            {
-                avatar: 'https://devimages-cdn.apple.com/assets/elements/icons/swift/swift-64x64_2x.png',
-                title: 'Swift',
-                skill: 50,
-            },
-        ],
-        web: [
-            {
-                avatar:
-                'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/600px-HTML5_Badge.svg.png',
-                title: 'HTML',
-                skill: 85,
-            },
-            {
-                avatar: 'http://lesscss.org/public/img/less_logo.png',
-                title: 'Less',
-                skill: 85,
-            },
-        ],
-    }),
-};
+@Component({ name: 'tech' })
+export default class extends Vue {
+
+    public stack = stack;
+
+    public mounted() {
+        this.stack.forEach((s, j) => s.techs.forEach((t, i) => {
+            setTimeout(() => this.$nextTick(() => t.skill = t.target), i * j * 400);
+        }));
+    }
+}
 </script>
 
 <template>
     <v-flex xs12 md4>
         <div class="title font-weight-regular">Tech Stack</div>
         <br/>
-        <div class="subheading font-weight-regular">Frameworks</div>
-        <br/>
-        <v-list dense>
-            <template v-for="(item, index) in items">
-                <v-list-tile :key="item.title" avatar>
-                    <v-list-tile-avatar>
-                        <img :src="item.avatar">
-                    </v-list-tile-avatar>
+        <div v-for="s in stack" :key="s.label">
+            <div class="subheading font-weight-regular">{{s.label}}</div>
+            <br/>
+            <v-list dense>
+                <template v-for="(item, index) in s.techs">
+                    <v-list-tile :key="item.title" avatar>
+                        <v-list-tile-avatar>
+                            <img :src="item.avatar">
+                        </v-list-tile-avatar>
 
-                    <v-list-tile-content>
-                        <v-list-tile-title v-html="item.title"></v-list-tile-title>
-                    </v-list-tile-content>
-                </v-list-tile>
-                <v-progress-linear color="secondary lighten-5"
-                                   height="5"
-                                   :value="item.skill"
-                                   :key="index"></v-progress-linear>
-            </template>
-        </v-list>
-        <br>
-        <div class="subheading font-weight-regular">Languages</div>
-        <br/>
-        <v-list dense>
-            <template v-for="(item, index) in languages">
-                <v-list-tile :key="item.title" avatar>
-                    <v-list-tile-avatar>
-                        <img :src="item.avatar">
-                    </v-list-tile-avatar>
-
-                    <v-list-tile-content>
-                        <v-list-tile-title v-html="item.title"></v-list-tile-title>
-                    </v-list-tile-content>
-                </v-list-tile>
-                <v-progress-linear color="secondary lighten-5"
-                                   height="5"
-                                   :value="item.skill"
-                                   :key="index"></v-progress-linear>
-            </template>
-        </v-list>
-        <br/>
-        <div class="subheading font-weight-regular">Web Development</div>
-        <br/>
-        <v-list dense>
-            <template v-for="(item, index) in web">
-                <v-list-tile :key="item.title" avatar>
-                    <v-list-tile-avatar>
-                        <img :src="item.avatar">
-                    </v-list-tile-avatar>
-
-                    <v-list-tile-content>
-                        <v-list-tile-title v-html="item.title"></v-list-tile-title>
-                    </v-list-tile-content>
-                </v-list-tile>
-                <v-progress-linear color="secondary lighten-5"
-                                   height="5"
-                                   :value="item.skill"
-                                   :key="index"></v-progress-linear>
-            </template>
-        </v-list>
+                        <v-list-tile-content>
+                            <v-list-tile-title v-html="item.title"></v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                    <v-progress-linear color="secondary lighten-5"
+                                    height="5"
+                                    :value="item.skill"
+                                    :key="index"></v-progress-linear>
+                </template>
+            </v-list>
+            <br>
+        </div>
     </v-flex>
 </template>
 
