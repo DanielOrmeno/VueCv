@@ -57,9 +57,9 @@ export default class extends Vue {
       </v-layout>
     </v-container>
     <v-footer app>
+      <span class="ml-4">Built with <fa-icon :icon="['fab', 'vuejs']" size="lg"></fa-icon></span>
       <v-spacer></v-spacer>
-      <span class="mr-4">Built with <fa-icon :icon="['fab', 'vuejs']" size="lg"></fa-icon></span>
-      <a href="https://github.com/DanielOrmeno/VueCv">Fork me on <fa-icon :icon="['fab', 'github']" size="lg"></fa-icon></a>
+      <a class="mr-4" href="https://github.com/DanielOrmeno/VueCv">Fork me on <fa-icon :icon="['fab', 'github']" size="lg"></fa-icon></a>
     </v-footer>
     <v-dialog v-model="dialog"
               width="500">

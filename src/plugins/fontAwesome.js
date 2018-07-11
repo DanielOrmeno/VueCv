@@ -1,11 +1,11 @@
 import Vue from 'vue';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCheckSquare } from '@fortawesome/free-regular-svg-icons'
-import { faExpandArrowsAlt } from '@fortawesome/free-solid-svg-icons'
+import { faExpandArrowsAlt, faFileDownload } from '@fortawesome/free-solid-svg-icons'
 import { faCodepen, faTwitter, faStackOverflow, faGithub, faVuejs } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-var i = [ faExpandArrowsAlt, faCheckSquare ];
+var i = [ faExpandArrowsAlt, faCheckSquare, faFileDownload ];
 var b = [ faCodepen, faTwitter, faStackOverflow, faGithub, faVuejs ];
 [...i, ...b].forEach(i => library.add(i));
 

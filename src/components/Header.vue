@@ -3,7 +3,7 @@ import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import { buttons, profile } from '../assets/cv';
 
-@Component({ name: 'header' })
+@Component({ name: 'cv-header' })
 export default class extends Vue {
     public buttons = buttons;
     public profile = profile;
@@ -41,7 +41,7 @@ export default class extends Vue {
                 color="grey lighten-2"
                 @click="open(btn.url)">
             <fa-icon :icon="btn.icon" size="lg"></fa-icon>
-            <span class="hidden-sm-and-down">{{ btn.label }}</span>
+            <span class="hidden-sm-and-down ml-2">{{ btn.label }}</span>
           </v-btn>
       </v-flex>
     </v-layout>
@@ -56,8 +56,5 @@ export default class extends Vue {
   }
   .social, .v-btn {
     cursor: pointer;
-    span {
-      margin-left: 1em;
-    }
   }
 </style>
