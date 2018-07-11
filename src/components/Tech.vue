@@ -1,7 +1,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
-import { stack } from '../assets/stack';
+import { stack } from '../assets/cv';
 
 @Component({ name: 'tech' })
 export default class extends Vue {

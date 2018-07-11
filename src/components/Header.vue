@@ -1,7 +1,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
-import { buttons, profile } from '../assets/header';
+import { buttons, profile } from '../assets/cv';
 
 @Component({ name: 'header' })
 export default class extends Vue {

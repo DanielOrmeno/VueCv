@@ -1,4 +1,4 @@
-import { experience } from '../assets/experience';
+import { experience } from '../assets/cv';
 class XPService {
     public getAll() {
         return experience;
