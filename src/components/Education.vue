@@ -28,6 +28,14 @@ export default class extends Vue {
                             contain></v-card-media>
                         </v-flex>
                 </v-layout>
+                <v-layout row wrap>
+                    <v-chip v-for="t in e.hightlights"
+                            :key="t"
+                            outline
+                            small
+                            color="secondary"
+                            disabled>{{t}}</v-chip>
+                </v-layout>
             </v-container>
         </v-card>
     </v-flex>

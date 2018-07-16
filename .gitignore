@@ -20,3 +20,5 @@ yarn-error.log*
 *.sln
 *.sw*
 public/Daniel.Ormeno.2018.pdf
+public/img/*
+src/assets/cv.*
